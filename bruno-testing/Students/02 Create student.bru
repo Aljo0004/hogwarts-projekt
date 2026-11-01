@@ -1,0 +1,27 @@
+meta {
+  name: Create student
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/students
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "Hermione Granger",
+    "year": 3,
+    "house_id": 2
+  }
+}
+
+vars:post-response {
+  studentId: res.body.id
+}
+
+assert {
+  res.status: eq 201
+}

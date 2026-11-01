@@ -1,0 +1,22 @@
+meta {
+  name: Create student - missing name
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{baseUrl}}/students
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "year": 1,
+    "house_id": 1
+  }
+}
+
+assert {
+  res.status: eq 400
+}

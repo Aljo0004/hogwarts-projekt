@@ -1,0 +1,26 @@
+meta {
+  name: Create teacher
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/teachers
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "Peter",
+    "house_id": 4
+  }
+}
+
+vars:post-response {
+  teacherId: res.body.id
+}
+
+assert {
+  res.status: eq 201
+}

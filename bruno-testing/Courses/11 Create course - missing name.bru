@@ -1,0 +1,21 @@
+meta {
+  name: Create course - missing name
+  type: http
+  seq: 11
+}
+
+post {
+  url: {{baseUrl}}/courses
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "teacher_id": 1
+  }
+}
+
+assert {
+  res.status: eq 400
+}

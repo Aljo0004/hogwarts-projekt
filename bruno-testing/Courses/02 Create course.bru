@@ -1,0 +1,26 @@
+meta {
+  name: Create course
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/courses
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "Defence Against the Dark Arts",
+    "teacher_id": 1
+  }
+}
+
+vars:post-response {
+  courseId: res.body.id
+}
+
+assert {
+  res.status: eq 201
+}

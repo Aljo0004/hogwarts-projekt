@@ -1,0 +1,21 @@
+meta {
+  name: Update course
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/courses/{{courseId}}
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "Care of Magical Creatures"
+  }
+}
+
+assert {
+  res.status: eq 200
+}

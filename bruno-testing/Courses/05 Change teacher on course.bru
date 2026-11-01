@@ -1,0 +1,22 @@
+meta {
+  name: Change teacher on course
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/courses/{{courseId}}/teacher
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "teacher_id": 2
+  }
+}
+
+assert {
+  res.status: eq 200
+}
+​

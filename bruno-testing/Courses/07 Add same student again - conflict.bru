@@ -1,0 +1,21 @@
+meta {
+  name: Add same student again - conflict
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{baseUrl}}/courses/{{courseId}}/students
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "student_id": 1
+  }
+}
+
+assert {
+  res.status: eq 409
+}

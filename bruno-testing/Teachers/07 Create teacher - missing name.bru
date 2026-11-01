@@ -1,0 +1,21 @@
+meta {
+  name: Create teacher - missing name
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{baseUrl}}/teachers
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "house_id": 1
+  }
+}
+
+assert {
+  res.status: eq 400
+}
